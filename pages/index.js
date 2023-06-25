@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Comment from "../components/Comment/comment";
+import Comment from "../components/Comment/Comment";
 import { addComment, deleteComment, editComment } from "./api/utils";
 import { Col, Row } from "antd";
 const comments = {
