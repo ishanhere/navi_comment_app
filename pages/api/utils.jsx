@@ -53,47 +53,47 @@
 // export const deleteComment = async () => {
 //   return {};
 // };
-export const addComment = function (tree, commentId, item) {
-  if (tree.id === commentId) {
-    tree.items.push({
+export const addComment = function (data, commentId, item) {
+  if (data.id === commentId) {
+    data.items.push({
       id: new Date().getTime(),
       name: item,
       items: [],
     });
 
-    return tree;
+    return data;
   }
 
   let latestNode = [];
-  latestNode = tree.items.map((ob) => {
+  latestNode = data.items.map((ob) => {
     return addComment(ob, commentId, item);
   });
 
-  return { ...tree, items: latestNode };
+  return { ...data, items: latestNode };
 };
 
-export const editComment = (tree, commentId, value) => {
-  if (tree.id === commentId) {
-    tree.name = value;
-    return tree;
+export const editComment = (data, commentId, value) => {
+  if (data.id === commentId) {
+    data.name = value;
+    return data;
   }
 
-  tree.items.map((ob) => {
+  data.items.map((ob) => {
     return editComment(ob, commentId, value);
   });
 
-  return { ...tree };
+  return { ...data };
 };
 
-export const deleteComment = (tree, id) => {
-  for (let i = 0; i < tree.items.length; i++) {
-    const currentItem = tree.items[i];
+export const deleteComment = (data, id) => {
+  for (let i = 0; i < data.items.length; i++) {
+    const currentItem = data.items[i];
     if (currentItem.id === id) {
-      tree.items.splice(i, 1);
-      return tree;
+      data.items.splice(i, 1);
+      return data;
     } else {
       deleteComment(currentItem, id);
     }
   }
-  return tree;
+  return data;
 };

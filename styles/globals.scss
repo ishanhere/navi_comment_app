@@ -167,10 +167,6 @@ $directions: top, bottom, left, right;
   }
 }
 
-// * {
-//   font-family: Monaco, sans-serif;
-// }
-
 .App {
   margin-top: 20px;
   width: fit-content;
@@ -178,13 +174,12 @@ $directions: top, bottom, left, right;
 
 .commentList {
   margin-top: 6px;
-  // background-color: #d3d3d3e0;
   display: flex;
   flex-direction: column;
   padding: 5px 10px;
   width: 300px;
   cursor: pointer;
-  border: 1px solid grey;
+  border: 1px solid #e6e6e6;
   border-radius: 5px;
 }
 .commentList:hover {
@@ -235,5 +230,11 @@ $directions: top, bottom, left, right;
 .comment {
   color: #ffffff;
   background-color: #569dff;
+  letter-spacing: 0.8px;
+}
+.editComment {
+  padding: 5px;
+  height: 35px;
+  border: 1px solid #1890ff !important;
   letter-spacing: 0.8px;
 }

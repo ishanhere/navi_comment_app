@@ -24,17 +24,17 @@ export default function Home() {
 
   const handledeleteComment = (folderId) => {
     const temp = deleteComment(commentsData, folderId);
-    console.log("temp-delete-1", temp);
+    // console.log("temp-delete-1", temp);
     const temp1 = { ...temp };
-    console.log("temp-delete-2", temp1);
+    // console.log("temp-delete-2", temp1);
     setCommentsData(temp1);
   };
 
   return (
     <Row>
-      <Col span={8} />
-      <Col span={8}>
-        <h3>Comment Widget</h3>
+      <Col span={8} md={2} sm={1} xs={0} xl={8} lg={8} xxl={8} />
+      <Col span={8} md={20} sm={22} xs={24} xl={8} lg={8} xxl={8}>
+        <h2 className="flex row-center">Comment Widget</h2>
         <Comment
           handleaddComment={handleaddComment}
           handleeditComment={handleeditComment}
@@ -42,7 +42,7 @@ export default function Home() {
           comment={commentsData}
         />
       </Col>
-      <Col span={8} />
+      <Col span={8} md={2} sm={1} xs={0} xl={8} lg={8} xxl={8} />
     </Row>
   );
 }

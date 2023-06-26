@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { UpSquareFilled, DownSquareFilled } from "@ant-design/icons";
-import { Button, Input } from "antd";
+import { Alert, Button, Input, Popconfirm } from "antd";
 
 const Comment = ({
   handleaddComment,
@@ -66,11 +66,12 @@ const Comment = ({
               suppressContentEditableWarning={editMode}
               ref={inputRef}
               style={{ wordWrap: "break-word" }}
+              className={`${editMode ? "editComment" : ""}`}
             >
               {comment.name}
             </span>
 
-            <div style={{ display: "flex", marginTop: "5px" }}>
+            <div className="flex margin-top-5">
               {editMode ? (
                 <>
                   <Button
@@ -96,7 +97,7 @@ const Comment = ({
               ) : (
                 <>
                   <Button
-                    type={
+                    icon={
                       <>
                         {expand ? (
                           <UpSquareFilled width="10px" height="10px" />
@@ -120,13 +121,22 @@ const Comment = ({
                     Edit
                   </Button>
 
-                  <Button
-                    danger
-                    onClick={() => handleDelete()}
-                    className="margin-right-5"
+                  <Popconfirm
+                    placement="rightTop"
+                    title={"Are you sure want to delete ?"}
+                    // description={description}
+                    onConfirm={() => handleDelete()}
+                    okText="Yes"
+                    cancelText="No"
                   >
-                    DELETE
-                  </Button>
+                    <Button
+                      danger
+                      // onClick={() => handleDelete()}
+                      className="margin-right-5"
+                    >
+                      DELETE
+                    </Button>
+                  </Popconfirm>
                 </>
               )}
             </div>
