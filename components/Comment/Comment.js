@@ -24,16 +24,17 @@ const Comment = ({
   };
 
   const onAddComment = () => {
-    console.log("123");
     if (editMode) {
+      if (inputRef?.current?.innerText === "") return;
       handleeditComment(comment.id, inputRef?.current?.innerText);
     } else {
+      console.log(input);
+      if (input === "") return;
       setExpand(true);
       handleaddComment(comment.id, input);
       setShowInput(false);
       setInput("");
     }
-
     if (editMode) setEditMode(false);
   };
 
