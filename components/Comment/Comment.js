@@ -71,7 +71,9 @@ const Comment = ({
             >
               {comment.name}
             </span>
-
+            <div className="margin-left-5 font-size-10 time">
+              At : {new Date(comment.id).toLocaleString()}
+            </div>
             <div className="flex margin-top-5">
               {editMode ? (
                 <>
